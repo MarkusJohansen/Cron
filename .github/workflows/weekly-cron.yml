@@ -2,7 +2,7 @@ name: Ping Supabase Apps
 
 on:
   schedule:
-    - cron: "52 12 * * 1" # 10:52 oslo time at every monday
+    - cron: "5 9 * * 1,2" 
   workflow_dispatch:
 
 jobs:
