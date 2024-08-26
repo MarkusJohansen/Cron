@@ -1,0 +1,32 @@
+name: Ping Supabase Apps
+
+on:
+  schedule:
+    - cron: "37 10 * * 1" # should run every Sunday and Wednesday at 00:00
+  workflow_dispatch:
+
+jobs:
+  ping-urls:
+    runs-on: ubuntu-latest
+    steps:
+      # setup python and install dependencies
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Add Poetry to PATH
+        run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: poetry install
+
+      # run the pinger script
+      - name: Run supabase project pinger
+        run: poetry run python pinger.py
