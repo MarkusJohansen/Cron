@@ -4,28 +4,29 @@ on:
   schedule:
     - cron: "5 9 * * 1,2" # every Monday and Tuesday at 9:05 AM
   workflow_dispatch:
-    jobs:
-      ping-urls:
-        runs-on: ubuntu-latest
-        steps:
-          # setup python and install dependencies
-          - name: Checkout code
-            uses: actions/checkout@v2
 
-          - name: Set up Python
-            uses: actions/setup-python@v5
-            with:
-              python-version: "3.11"
+jobs:
+  ping-urls:
+    runs-on: ubuntu-latest
+    steps:
+      # setup python and install dependencies
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-          - name: Install Poetry
-            run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-          - name: Add Poetry to PATH
-            run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
 
-          - name: Install dependencies
-            run: poetry install
+      - name: Add Poetry to PATH
+        run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
-          # run the pinger script
-          - name: Run supabase project pinger
-            run: poetry run python pinger.py
+      - name: Install dependencies
+        run: poetry install
+
+      # run the pinger script
+      - name: Run supabase project pinger
+        run: poetry run python pinger.py
