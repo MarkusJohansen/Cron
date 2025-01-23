@@ -10,4 +10,7 @@ def ping(targets: list):
             print(f"{target} is down with error {e}")
 
 
-ping(["https://cv-nine-gilt.vercel.app/", "https://dagens-ord.vercel.app/"])
+ping([
+    "https://cv-nine-gilt.vercel.app/",
+    "https://dagens-ord.vercel.app/",
+])

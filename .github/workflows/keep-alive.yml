@@ -1,12 +1,12 @@
 # This cronjob is a way to ensure that github wont "put my cron jobs to sleep"
-# Runs once a month, on the 23rd day, at 14:00 Oslo time
+# Runs once a month, on the 23rd day, at 14:30 Oslo time
 # Commits to the repository, to ensure that the "no activity for 60 days policy"
 # Deactivates my cron jobs :,)
 
 name: Github Action with a cronjob trigger
 on:
   schedule:
-    - cron: "00 13 23 * *"
+    - cron: "30 13 23 * *"
 permissions:
   actions: write
 jobs:

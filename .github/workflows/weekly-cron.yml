@@ -25,7 +25,7 @@ jobs:
         run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-root
 
       # run the pinger script
       - name: Run supabase project pinger
