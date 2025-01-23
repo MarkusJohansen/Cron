@@ -3,7 +3,7 @@
 # Commits to the repository, to ensure that the "no activity for 60 days policy"
 # Deactivates my cron jobs :,)
 
-name: Github Action with a cronjob trigger
+name: Keep alive workflow
 on:
   schedule:
     - cron: "30 13 23 * *"
