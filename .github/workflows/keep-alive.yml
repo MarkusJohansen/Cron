@@ -1,12 +1,12 @@
 # This cronjob is a way to ensure that github wont "put my cron jobs to sleep"
-# Runs once a month, on the 23rd day, at 14:30 Oslo time
-# Commits to the repository, to ensure that the "no activity for 60 days policy"
+# Runs once a day, checking wether there where 45 days since last commit
+# Commits to the repository if so, to ensure that the "no activity for 60 days policy"
 # Deactivates my cron jobs :,)
 
 name: Keep alive workflow
 on:
   schedule:
-    - cron: "30 13 23 * *"
+    - cron: "0 0 * * *"
 permissions:
   actions: write
 jobs:
