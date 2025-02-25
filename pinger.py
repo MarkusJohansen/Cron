@@ -12,5 +12,5 @@ def ping(targets: list):
 
 ping([
     "https://cv-nine-gilt.vercel.app/",
-    "https://dagens-ord.vercel.app/",
+    "https://www.dagensord.no/",
 ])
